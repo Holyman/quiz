@@ -1,0 +1,104 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+
+<div class="" id="home">
+    <div class="container-narrow">
+        <div id="holder_slide">
+      <div class="jumbotron">
+        <h1>Orakelquiz</h1>
+
+      </div>
+
+      
+
+
+
+      <div>
+      <form action="/submit/" method="post">
+      {% csrf_token %}
+      
+
+        {% for question in question_list %}
+        <div class="box-entry">
+          <h4>{{ question.question }}</h4>
+          
+          {% for choice in question.choice_set.all %}
+          <ol>
+
+            <label class="radio">
+              <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="optionsRadios1">
+              {{ choice.answer }}
+            </label>
+
+          </ol>
+          {% endfor %}
+          
+          </div> <!-- box-entry -->
+
+        {% endfor %}
+       
+        <button class="btn btn-primary" id="submit-btn" href="#submit" data-toggle="modal">Send inn</button>
+
+         
+
+
+         <!-- MODAL SUBMIT-->
+          <div id="submit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 id="myModalLabel" class="text-center">Er du sikker?</h3>
+            </div>
+            <div class="modal-body">
+              <p class="text-center">Du kan bare ta quizen en gang!</p>
+
+              <button class="btn btn-primary" type="submit">Send inn</button>
+
+
+            </div>
+            <div class="modal-footer">
+
+              </div>
+          </div>
+          <!-- /MODAL -->
+
+
+  </form>
+        
+
+        </div>
+
+
+        </div> <!-- /holder_slide -->
+    </div> <!-- /container -->
+</div> <!-- /slide -->
+
+
+
+
+
+ <!-- MODAL RULES-->
+    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Du kan bare ta quizen en gang. Du logger inn med ditt NTNU-brukernavn og passord. Det vil bli plukket ut en vinner hver dag, som vinner en Kindle!</p>
+
+
+
+      </div>
+      <div class="modal-footer">
+
+        </div>
+    </div>
+    <!-- /MODAL -->
+
+
+
+{% endblock %}
+
+
+

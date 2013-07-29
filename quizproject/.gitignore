@@ -1,0 +1,7 @@
+*.pyc
+*.DS_Store
+*db/*
+#*quizproject/settings.py
+env/
+main/migrations/
+main_bak/

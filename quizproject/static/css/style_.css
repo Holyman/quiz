@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/* CSS Document */
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+	  
+	  
+	  /*Knapper*/
+	  
+	  .nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+		color: #ffffff;
+		background-color: #91AA9D;
+		}
+		
+		.nav > li > a:hover, .nav > li > a:focus {
+		text-decoration: none;
+		background-color: #FCFFF5;
+		}
+		
+		a {
+		color:	#3E606F;
+		text-decoration: none;
+		}
+	  	a:hover, a:focus {
+		color:	#193441;
+		text-decoration: underline;
+		}
+		
+		.btn-success {
+		color: #FCFFF5;
+		text-shadow: 0 -1px 0 
+		rgba(0, 0, 0, 0.25);
+		background-color: 
+		#D1DBBD;
+		background-image: -moz-linear-gradient(top, 
+		#D1DBBD, 
+		#bdc5ac);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(
+		#D1DBBD), to(
+		#bdc5ac));
+		background-image: -webkit-linear-gradient(top, 
+		#D1DBBD, 
+		#bdc5ac);
+		background-image: -o-linear-gradient(top, 
+		#D1DBBD, 
+		#bdc5ac);
+		background-image: linear-gradient(to bottom, 
+		#D1DBBD, 
+		#bdc5ac);
+		background-repeat: repeat-x;
+		border-color: 
+		#bdc5ac 
+		#bdc5ac 
+		#387038;
+		border-color: 
+		rgba(0, 0, 0, 0.1) 
+		rgba(0, 0, 0, 0.1) 
+		rgba(0, 0, 0, 0.25);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffD1DBBD', endColorstr='#ffbdc5ac', GradientType=0);
+		filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+		}
+		.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+		color: 
+		#FCFFF5;
+		background-color: 
+		#bdc5ac;
+		}
+	  
+     /*Table.html */
+	 
+	.table-hover tbody tr:hover > td,
+	.table-hover tbody tr:hover > th {
+	  background-color: #D1DBBD ;
+	}
+		
+		/* tables */
+
+	table.tablesorter thead tr .header {
+		background-repeat: no-repeat;
+		background-position: center right;
+		cursor: pointer;
+	}
+	
+	table.tablesorter tbody tr.odd td {
+	}
+	table.tablesorter thead tr .headerSortUp {
+		background-image: url(../img/asc.gif); 
+	}
+	table.tablesorter thead tr .headerSortDown {
+		background-image: url(../img/desc.gif); 
+	}
+	
+	/*Form-validering*/
+	
+	label.valid {
+	  width: 24px;
+	  height: 24px;
+	  background: url(../img/valid.png) center center no-repeat;
+	  display: inline-block;
+	  text-indent: -9999px;
+	}
+	label.error {
+	  font-weight: bold;
+	  color: #E09586;
+	  padding: 2px 8px;
+	  margin-top: 2px;
+	}
+	
+	.control-group.error .control-label, .control-group.error .help-block, .control-group.error .help-inline {
+	color: 
+	#E09586;
+	}
+	
+	.control-group.error input, .control-group.error select, .control-group.error textarea {
+	border-color: 
+	#E09586;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	}
+	
+	.control-group.error .checkbox, .control-group.error .radio, .control-group.error input, .control-group.error select, .control-group.error textarea {
+	color: 
+	#E09586;
+	}
+	
+	.control-group.success .control-label, .control-group.success .help-block, .control-group.success .help-inline {
+	color: 
+	#91AA9D;
+	}
+	
+	.control-group.success input, .control-group.success select, .control-group.success textarea {
+	border-color: 
+	#91AA9D;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	}
+	bootstrap.css:1545
+	.control-group.success .checkbox, .control-group.success .radio, .control-group.success input, .control-group.success select, .control-group.success textarea {
+	color: 
+	#91AA9D;
+	}

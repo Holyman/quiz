@@ -1,0 +1,105 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+
+<div class="" id="home">
+    <div class="container-narrow">
+        <div id="holder_slide">
+      <div class="jumbotron">
+        <h1>Orakelquiz</h1>
+        <p class="lead">Kjære studenter!</p>
+        <p class="lead">I 2013 er det 50 år siden de første studentoraklene startet, og det skal selvfølgelig feires!</p>
+        <p class="lead">Vi har laget en quiz hvor dere kan lære oss å kjenne litt bedre. Hver dag trekker vi en vinner som får et Kindle lesebrett!</p>
+      </div>
+
+      
+
+<!-- 
+
+      <div class="box-entry">
+        <form action="" method="post" id="contact-form" class="form-horizontal">
+          {% csrf_token %}
+          <div>
+            <label>NTNU-brukernavn</label>
+            {{ form.username }}
+          </div>
+          <div>
+            {{ form.password.label_tag }}
+            {{ form.password }}
+          </div>
+          <div>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <label>&nbsp;</label>
+            <input type="submit" value="Logg inn" />
+          </div>
+        </form>
+
+ -->
+
+
+
+
+       <div class="box-login">
+        <h4 style="text-align:center;"> Logg inn med NTNU-brukernavn og passord for å ta quizzen!</h4><br/>
+
+        {% if form.errors %}
+        <p style="text-align:center; color:#E09586;">Brukernavnet og passordet ditt er ikke riktig. <br/>Bruk det samme som du bruker for å logge deg på innsida og webmail.</p>
+        {% endif %}
+
+        <form action="" method="post" class="form-horizontal">
+          {% csrf_token %}
+
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">NTNU-brukernavn</label>
+            <div class="controls">
+              {{ form.username }}
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Passord</label>
+            <div class="controls">
+              {{ form.password }}
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+     <!--          <input type="hidden" name="next" value="{{ next }}" />
+              <label>&nbsp;</label> -->
+              <button type="submit" class="btn btn-primary  ">Ta quizzen!</button>
+            </div>
+          </div>
+        </form>
+        <p style="text-align:center; text-decoration:underline;"> Merk at du kun kan ta quizzen en gang. </p>
+
+        <script type="text/javascript">
+        // document.getElementById('id_username').focus()
+        </script>
+      </div>
+
+
+        </div> <!-- /holder_slide -->
+    </div> <!-- /container -->
+</div> <!-- /slide -->
+
+
+
+ <!-- MODAL RULES-->
+    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Du kan bare ta quizen en gang. Du logger inn med ditt NTNU-brukernavn og passord. Det vil bli plukket ut en vinner hver dag, som vinner en Kindle!</p>
+
+
+
+      </div>
+      <div class="modal-footer">
+
+        </div>
+    </div>
+    <!-- /MODAL -->
+
+{% endblock %}
