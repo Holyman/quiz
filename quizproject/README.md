@@ -1,10 +1,10 @@
 # quizproject
 
 Jeg tror det meste av koden er lett forståelig, så utelater det mest trivielle her, men det er noen ting som kanskje ikke er så lett å legge merke til med en gang.
-All HTML ligger i templates. Templates/reistration er den første siden man ser med login-formet. Templates/main inneholder filen base.html som er meny/konkuranseregler og footer. Home.html er selve quizen. Logout er i grunn bare en side som redirecter til root, altså til login.html. Result.html er siden du kommer til når du har levert, og den du kommer til hvis du logger inn igjen etter du har levert. Denne viser hvor mange rette svar du har. 
+All HTML ligger i templates. 'Templates/reistration/login.html' er den første siden man ser med login-formet. 'Templates/main' inneholder filen 'base.html' som er meny/konkuranseregler og footer. 'Home.html' er selve quizen. 'Logout.html' er i grunn bare en side som redirecter til root, altså til 'login.html'. 'Result.html' er siden du kommer til når du har levert, og den du kommer til hvis du logger inn igjen etter du har levert. Denne viser hvor mange rette svar du har. 
 
 ### Gjøre quizen aktiv
-Det finnes en fil som ligger i static/js/orakel.js I filen er det kommentarer for hvordan man skal sette aktiviseringstidspunkt. Det er viktig at det er på riktig form og at det er på engelsk. 
+Det finnes en fil som ligger i 'static/js/orakel.js' I filen er det kommentarer for hvordan man skal sette aktiviseringstidspunkt. Det er viktig at det er på riktig form og at det er på engelsk. 
 
 
 ### UserProfile
