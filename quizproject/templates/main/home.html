@@ -6,70 +6,76 @@
 <div class="" id="home">
     <div class="container-narrow">
         <div id="holder_slide">
-      <div class="jumbotron">
-        <h1>Orakelquiz</h1>
+          <div class="jumbotron">
+            <h1>Orakelquiz</h1>
 
-      </div>
+            <form action="/submit/" method="post">
+            {% csrf_token %}
+            
+    <!-- Henter spørsmålene du fikk fra views -->
+              {% for question in question_list %}
+              <div class="box-entry">
+                <h4>{{ question.question }}</h4>
+    <!-- Henter svar-alternativer fra spørsmålet -->
+                {% for choice in question.choice_set.all %}
+                <ol>
 
-      
+                  <label class="radio">
+                    <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="optionsRadios1">
+                    {{ choice.answer }}
+                  </label>
 
+                </ol>
+                {% endfor %}
+                
+                </div> <!-- box-entry -->
 
+              {% endfor %}
+             
+              <button class="btn btn-primary" id="submit-btn" onclick="return validateForm()">Send inn</button>
 
-      <div>
-      <form action="/submit/" method="post">
-      {% csrf_token %}
-      
-
-        {% for question in question_list %}
-        <div class="box-entry">
-          <h4>{{ question.question }}</h4>
-          
-          {% for choice in question.choice_set.all %}
-          <ol>
-
-            <label class="radio">
-              <input type="radio" name="{{ question.id }}" value="{{ choice.id }}" id="optionsRadios1">
-              {{ choice.answer }}
-            </label>
-
-          </ol>
-          {% endfor %}
-          
-          </div> <!-- box-entry -->
-
-        {% endfor %}
-       
-        <button class="btn btn-primary" id="submit-btn" href="#submit" data-toggle="modal">Send inn</button>
-
-         
+            </form>           
 
 
-         <!-- MODAL SUBMIT-->
-          <div id="submit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel" class="text-center">Er du sikker?</h3>
-            </div>
-            <div class="modal-body">
-              <p class="text-center">Du kan bare ta quizen en gang!</p>
+<!-- MODAL SUBMIT formet-->
+<div id="submit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="text-center">Er du sikker?</h3>
+  </div>
+  <div class="modal-body">
+    <p class="text-center">Du kan bare ta quizen en gang!</p>
+    <button class="btn btn-primary" type="submit">Send inn</button>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+<!-- /MODAL -->
 
-              <button class="btn btn-primary" type="submit">Send inn</button>
 
 
-            </div>
-            <div class="modal-footer">
-
-              </div>
-          </div>
-          <!-- /MODAL -->
-
+<!-- MODAL check ant svar-->
+<div id="check" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel" class="text-center">Mangler svar!</h3>
+  </div>
+  <div class="modal-body">
+    <p class="text-center">Du har ikke svart på alle spørsmålene!</p>
+    <p class="text-center">Klikk på krysset oppe i hjørnet for å svare på flere spørsmål.</p>
+    <p class="text-center">Hvis du virkelig vil levere kan du trykke på Send inn.</p>
+    <p class="text-center"><strong>Husk at du kun kan levere én gang!</strong></p>
+    <button class="btn btn-primary" type="submit">Send inn</button>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+<!-- /MODAL -->
 
   </form>
         
 
-        </div>
-
-
+          </div>  <!-- /Jumbotron -->
         </div> <!-- /holder_slide -->
     </div> <!-- /container -->
 </div> <!-- /slide -->
@@ -77,25 +83,28 @@
 
 
 
+<!-- Script for å sjekke om du har trykket på alle spørsmålene, gir deg 'er-du-sikker på å levere'-modalen om du har svar på alt, og gir deg 'du-har-ikke-svart-på-alt-modalen om du ikke har trykket på alle' -->
+<script>
+function validateForm() {
+    var radios = document.getElementsByTagName("input");
+    var formValid = false;
+    var o = 0;
+    for (var i = radios.length - 1; i >= 0; i--) {
+      if (radios[i].checked) {
+        o++;
+      };
+    };
 
- <!-- MODAL RULES-->
-    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
-      </div>
-      <div class="modal-body">
-        <p class="text-center">Du kan bare ta quizen en gang. Du logger inn med ditt NTNU-brukernavn og passord. Det vil bli plukket ut en vinner hver dag, som vinner en Kindle!</p>
-
-
-
-      </div>
-      <div class="modal-footer">
-
-        </div>
-    </div>
-    <!-- /MODAL -->
-
+    if (o < 10) {
+      // send til "sjekk ant svar"-modal
+      $('#check').modal('show')
+    } else if (o == 10){
+      // send til "send inn"-modal
+      $('#submit').modal('show')
+    } 
+    return formValid;
+}
+</script>
 
 
 {% endblock %}

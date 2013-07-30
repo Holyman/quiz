@@ -5,10 +5,10 @@
 <head>
 
     <link href="/static/css/bootstrap.css" rel="stylesheet">
-    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet" type="text/css">
     <script src="/static/js/jquery-1.8.2.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/orakel.js"></script>
 
 
     <title>Jubileumsquiz Orakeltjenesten</title>
@@ -24,10 +24,7 @@
     <ul>
         <ul class="nav nav-pills">
           	<li class="meld"><a class="nav-button" href="#rules" data-toggle="modal">Konkuranseregler</a></li>
-        	<li class="meld"><a class="nav-button" href="/logout/" data-toggle="modal">Logg ut</a></li>
-
-<!--           <li class="meld"><a class="nav-button" href="#meld">NTNU</a></li>
- -->         
+        	<li class="meld"><a class="nav-button" href="/logout/" data-toggle="modal">Logg ut</a></li>    
 
 
         </ul>
@@ -52,7 +49,19 @@
 
 
 
-
+<!-- MODAL RULES-->
+    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Får at dette skal bli rettferdig, kan du bare ta quizen en gang per dag. Hver dag kl. 16:00 blir det trukket en quizvinner fra det siste døgnet. Det vil si at om man svarer på quizen kl. 17:00 blir man med i trekningen kl. 16:00 dagen etter. Følg med på vår facebookside fb.com/orakel.ntnu for annonsering av vinnere! Logg deg inn med ditt NTNU-brukernavn og passord for å starte quizen.</p>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+<!-- /MODAL -->
 
 <footer>
         <br/><p class="text-center">&copy; Orakeltjenesten 2013 <a href="mailto:jubileum@orakel.ntnu.no">Jubileum@orakel.ntnu.no</a></p>

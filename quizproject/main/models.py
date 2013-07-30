@@ -141,24 +141,21 @@ class UserAnswer(models.Model):
 
     def question(self):
         """
-        This function makes if possible to use "question" as a field in
-        UserAnswerInline.
+        This function is used in results.html, this returns the qestion 
         """
 
         return self.choice.question
 
     def choise(self):
         """
-        This function makes if possible to use "question" as a field in
-        UserAnswerInline.
+        This function is used in results.html, this returns the choise by the user 
         """
 
         return self.choice
 
     def correct(self):
         """
-        This function makes if possible to use "question" as a field in
-        UserAnswerInline.
+        This function is used in results.html, this returns the correct option
         """
 
         return self.choice.question.correct_answer_string()
@@ -166,5 +163,7 @@ class UserAnswer(models.Model):
     def is_correct(self):
         return self.choice.is_correct()
 
-
+        """
+        This function is used in results.html, this returns a boolean of whether or not the user answered correctly
+        """
 

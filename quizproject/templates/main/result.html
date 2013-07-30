@@ -9,77 +9,40 @@
         <h1>Orakelquiz</h1>
 
       </div>
-
+<!-- Hvis det er første gang brukeren tar quizen blir ikke brukerprofilen oppdatert med True på has_taken_quiz før etter den har rendret resultatsiden. Det gjør at man kan gi en "Takk" første gang de leverer ...-->
       {% if not has_taken_quiz %}
-      	<h3>Takk for at du svarte på quizzen! </h3>
-
+      	<h3 class="text-center">Takk for at du svarte på quizen! </h3>
+<!-- ... og en wtf neste gang -->
       {% else %}   
-    	<h3>Du har allerede gjort quizzen </h3>
-
+    	<h3 class="text-center">Du har allerede levert quizen i dag</h3>
       {% endif %}
-
 
       <div>
       
-		<p>Du fikk {{ num_correct_answes }} riktige svar! </p>
+  		<p class="text-center lead" style="text-decoration:underline;">Du fikk {{ num_correct_answes }} riktige svar! </p>
+      <p class="text-center">Vinnerne blir annonsert på vår <a style="color:#444; text-decoration:underline;" href="https://facebook.com/orakel.ntnu">Facebookside</a> hver dag kl. 16:00. Lykke til!</p>
 
 
 
-
-
+<!-- Henter ut svarene som ligger på brukeren -->
         {% for a in answers %}
         <div class="box-entry">
-       
-
             <h4>{{ a.question }} </h4>
-            
             <table>
             <tr><td><p class="{{ a.is_correct}}"> Du svarte: {{ a.choise }} </p></td><td><div class="{{ a.is_correct}}"></div></td></tr>
             </table>
-
-
-          
+<!-- Hvis man har svart feil, får man se hva som egentlig var riktig svar: -->
             {% if not a.is_correct %}
-           
             <p class="true"> Riktig svar: {{ a.correct }} </p>
-
             {% endif %}
-
-  
-          
           </div> <!-- box-entry -->
-
         {% endfor %}
-	        
-
-      </div>
-
+        </div>
 
         </div> <!-- /holder_slide -->
     </div> <!-- /container -->
 </div> <!-- /slide -->
 
-
-
-
-
- <!-- MODAL RULES-->
-    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
-      </div>
-      <div class="modal-body">
-        <p class="text-center">Du kan bare ta quizen en gang. Du logger inn med ditt NTNU-brukernavn og passord. Det vil bli plukket ut en vinner hver dag, som vinner en Kindle!</p>
-
-
-
-      </div>
-      <div class="modal-footer">
-
-        </div>
-    </div>
-    <!-- /MODAL -->
 
 
 {% endblock %}

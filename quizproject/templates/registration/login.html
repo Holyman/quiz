@@ -8,41 +8,46 @@
         <div id="holder_slide">
       <div class="jumbotron">
         <h1>Orakelquiz</h1>
-        <p class="lead">Kjære studenter!</p>
-        <p class="lead">I 2013 er det 50 år siden de første studentoraklene startet, og det skal selvfølgelig feires!</p>
-        <p class="lead">Vi har laget en quiz hvor dere kan lære oss å kjenne litt bedre. Hver dag trekker vi en vinner som får et Kindle lesebrett!</p>
+        <h3>Kjære studenter!</h3>
+        <h4>I 2013 er det 50 år siden Orakeltjenesten ble stiftet og dette skal feires!</h4>
+        <h4> Derfor har vi laget en quiz der dere blir litt bedre kjent med oss. <br/>Hver dag fra 2. til 6. september kl. 16:00 trekker vi en vinner som får et<br/> Kindle lesebrett!</h4>
       </div>
 
       
+<!-- Boksen som vises hvis tiden ikke er inne... -->
+      <div class="box-login" id="not_open"style="display:none;">
+        <h4 style="text-align:center;"> Logg inn med NTNU-brukernavn og passord for å ta quizen!</h4><br/>
 
-<!-- 
+        <p style="text-align:center; color:#E09586;">Quizen er ikke åpen ennå.</p>
 
-      <div class="box-entry">
-        <form action="" method="post" id="contact-form" class="form-horizontal">
+        <form action="" method="" class="form-horizontal">
           {% csrf_token %}
-          <div>
-            <label>NTNU-brukernavn</label>
-            {{ form.username }}
+
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">NTNU-brukernavn</label>
+            <div class="controls">
+              {{ form.username }}
+            </div>
           </div>
-          <div>
-            {{ form.password.label_tag }}
-            {{ form.password }}
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Passord</label>
+            <div class="controls">
+              {{ form.password }}
+            </div>
           </div>
-          <div>
-            <input type="hidden" name="next" value="{{ next }}" />
-            <label>&nbsp;</label>
-            <input type="submit" value="Logg inn" />
+          <div class="control-group">
+            <div class="controls">
+              <button type="" class="btn btn-primary" disabled>Ta quizen!</button>
+            </div>
           </div>
         </form>
+        <p style="text-align:center; text-decoration:underline;"> Merk at du kun kan ta quizzen en gang. </p>
+      </div>
 
- -->
-
-
-
-
-       <div class="box-login">
+<!-- Boksen som vises når quizen er åpen -->
+       <div class="box-login" id="open" style="display:none;">
         <h4 style="text-align:center;"> Logg inn med NTNU-brukernavn og passord for å ta quizzen!</h4><br/>
-
+<!-- Hvis brukernavn/passord ikke går igjennom LDAP vises dette: -->
         {% if form.errors %}
         <p style="text-align:center; color:#E09586;">Brukernavnet og passordet ditt er ikke riktig. <br/>Bruk det samme som du bruker for å logge deg på innsida og webmail.</p>
         {% endif %}
@@ -64,17 +69,12 @@
           </div>
           <div class="control-group">
             <div class="controls">
-     <!--          <input type="hidden" name="next" value="{{ next }}" />
-              <label>&nbsp;</label> -->
+
               <button type="submit" class="btn btn-primary  ">Ta quizzen!</button>
             </div>
           </div>
         </form>
         <p style="text-align:center; text-decoration:underline;"> Merk at du kun kan ta quizzen en gang. </p>
-
-        <script type="text/javascript">
-        // document.getElementById('id_username').focus()
-        </script>
       </div>
 
 
@@ -82,24 +82,5 @@
     </div> <!-- /container -->
 </div> <!-- /slide -->
 
-
-
- <!-- MODAL RULES-->
-    <div id="rules" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="text-center">Konkuranseregler</h3>
-      </div>
-      <div class="modal-body">
-        <p class="text-center">Du kan bare ta quizen en gang. Du logger inn med ditt NTNU-brukernavn og passord. Det vil bli plukket ut en vinner hver dag, som vinner en Kindle!</p>
-
-
-
-      </div>
-      <div class="modal-footer">
-
-        </div>
-    </div>
-    <!-- /MODAL -->
 
 {% endblock %}
